@@ -1,0 +1,18 @@
+{
+    "name": "vapine-sentinel",
+    "version": "1.0.0",
+    "description": "High-resilience, multi-frequency remote orchestration engine.",
+    "main": "main.js",
+    "scripts": {
+        "start": "node main.js",
+        "dev": "node main.js"
+    },
+    "keywords": [
+        "remote",
+        "vpn",
+        "sentinel",
+        "p2p"
+    ],
+    "author": "Architect Agent",
+    "license": "MIT"
+}

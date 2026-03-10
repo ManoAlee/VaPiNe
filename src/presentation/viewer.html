@@ -91,31 +91,32 @@
 </head>
 
 <body>
-    <video id="remote-canvas" autoplay playsinline title="VaPiNe Hyper-Res Preview"></video>
+    <canvas id="remote-canvas" title="VaPiNe Sentinel - Live Stream Simulation"></canvas>
 
     <div class="overlay-ui">
-        <span class="badge">Connected: Sentinel Link</span>
+        <span class="badge">SECURE LINK: ACTIVE</span>
         <div class="metrics">
-            Latency: <span id="lat">8ms</span> | FPS: <span id="fps">120</span>
+            LAT: <span id="lat">6ms</span> | FPS: <span id="fps">120</span> | BAND: <span id="band">6GHz</span>
         </div>
         <div id="spectrum-monitor" style="margin-top: 10px; font-size: 0.7rem; color: var(--accent);">
-            SCANNING: 6GHz [OK] | 5GHz [STBY] | SDR [OFF]
+            SENTINEL SHIELD: <span style="color: #22c55e;">ENABLED</span> | MLO: <span
+                style="color: #22c55e;">OPTIMAL</span>
         </div>
     </div>
 
     <!-- Matrix HUD Overlay -->
     <div id="matrix-grid"
-        style="position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; background-image: radial-gradient(rgba(239, 68, 68, 0.05) 1px, transparent 1px); background-size: 40px 40px; opacity: 0.5;">
+        style="position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; background-image: radial-gradient(rgba(239, 68, 68, 0.1) 1px, transparent 1px); background-size: 50px 50px; opacity: 0.3;">
     </div>
 
     <div id="scanner-line"
-        style="position:absolute; top:0; left:0; width:100%; height:2px; background: var(--accent); opacity: 0.2; animation: scan 4s linear infinite;">
+        style="position:absolute; top:0; left:0; width:100%; height:2px; background: var(--accent); opacity: 0.4; animation: scan 3s linear infinite;">
     </div>
 
     <div class="controls">
-        <button class="btn">Settings</button>
-        <button class="btn">Spectrum</button>
-        <button class="btn" style="color: #ef4444;">Shield: Active</button>
+        <button class="btn">TERMINAL</button>
+        <button class="btn">DECRYPT</button>
+        <button class="btn" style="color: #ef4444;">DISCONNECT</button>
     </div>
 
     <style>
@@ -131,12 +132,54 @@
     </style>
 
     <script>
-        // Matrix HUD Dynamic Logic
+        // VaPiNe Sentinel - Visual Stream Simulation
+        const canvas = document.getElementById('remote-canvas');
+        const ctx = canvas.getContext('2d');
+
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.onresize = resize;
+        resize();
+
+        function draw() {
+            // Simulated Data Stream Noise (Digital Rain style)
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#ef444422';
+            for (let i = 0; i < 30; i++) {
+                const x = Math.random() * canvas.width;
+                const y = Math.random() * canvas.height;
+                const w = Math.random() * 150;
+                ctx.fillRect(x, y, w, 1);
+            }
+
+            // Central Tactical Lock
+            ctx.strokeStyle = '#ef444488';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.arc(canvas.width / 2, canvas.height / 2, 120 + Math.sin(Date.now() / 400) * 15, 0, Math.PI * 2);
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.moveTo(canvas.width / 2 - 150, canvas.height / 2);
+            ctx.lineTo(canvas.width / 2 + 150, canvas.height / 2);
+            ctx.moveTo(canvas.width / 2, canvas.height / 2 - 150);
+            ctx.lineTo(canvas.width / 2, canvas.height / 2 + 150);
+            ctx.stroke();
+
+            requestAnimationFrame(draw);
+        }
+        draw();
+
+        // Metrics randomizer
         setInterval(() => {
-            const lat = document.getElementById('lat');
-            const newLat = Math.floor(Math.random() * (12 - 5 + 1)) + 5;
-            lat.innerText = `${newLat}ms`;
-        }, 3000);
+            const latVal = (4 + Math.random() * 3).toFixed(1);
+            document.getElementById('lat').innerText = latVal + 'ms';
+            document.getElementById('fps').innerText = Math.floor(119 + Math.random() * 2);
+        }, 800);
     </script>
 </body>
 

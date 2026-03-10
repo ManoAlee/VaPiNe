@@ -10,6 +10,8 @@ VaPiNe was engineered following the **"Hyper-Architecture"** principles:
 - **Zero-Trust Networking**: Every packet is encrypted with military-grade AES-256-GCM.
 - **Neural Input Sync**: Mouse and keyboard events are synchronized via a proprietary ultra-low-latency bridge.
 - **Bimodal Scaling**: Handles 4K/60fps remote streaming through high-efficiency P2P tunnels.
+- **Agentic Sentinel**: Autonomous AI co-pilot for metadata analysis and system-level automation.
+- **Multi-Spectrum MLO**: Orchestration across Wi-Fi 7 (6GHz), Bluetooth 5.3, and ISM bands.
 
 ## 🏗️ System Architecture
 
@@ -40,10 +42,13 @@ npm run start:production
 ```
 
 ## 📖 Deep Documentation
+## 📖 Deep Documentation
 - [Architecture Blueprint](docs/architecture/BLUEPRINT.md)
-- [Remote Protocol Specification](docs/api/REMOTE_PROTOCOL.md)
-- [Security Audit Manifesto](docs/SECURITY.md)
-- [Meta-Prompting Guide (AI Control)](docs/PROMPTS.md)
+- [Tactical Operations Manual](docs/architecture/TACTICAL_OPERATIONS.md)
+- [Agent Protocol Specification](docs/api/AGENT_PROTOCOL.md)
+- [Multi-Spectrum Study](docs/architecture/SPECTRUM.md)
+- [Evolution Roadmap (TO-DO)](docs/TODO.md)
+- [Contributing Guidelines](CONTRIBUTING.md)
 
 ---
 *Created by Architect Agent for the Next Generation of Software.*

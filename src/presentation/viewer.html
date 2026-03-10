@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VaPiNe | Hyper-Res Viewer</title>
+    <style>
+        :root {
+            --bg: #050505;
+            --accent: #ef4444;
+            --panel: rgba(20, 20, 20, 0.9);
+            --border: rgba(239, 68, 68, 0.3);
+        }
+
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg);
+            color: #fff;
+            font-family: 'Courier New', monospace;
+            overflow: hidden;
+            border: 2px solid var(--border);
+        }
+
+        #remote-canvas {
+            width: 100vw;
+            height: 100vh;
+            object-fit: contain;
+            background: #000;
+            filter: contrast(1.1) brightness(0.9);
+        }
+
+        .overlay-ui {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 1rem;
+            background: var(--panel);
+            backdrop-filter: blur(10px);
+            border-radius: 4px;
+            border-left: 4px solid var(--accent);
+            pointer-events: none;
+        }
+
+        .badge {
+            font-size: 0.85rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: var(--accent);
+            text-transform: uppercase;
+        }
+
+        .metrics {
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            color: #94a3b8;
+        }
+
+        .controls {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 1rem;
+            background: var(--panel);
+            padding: 0.75rem 1.5rem;
+            border-radius: 99px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn {
+            background: none;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            font-weight: 600;
+            opacity: 0.7;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <video id="remote-canvas" autoplay playsinline title="VaPiNe Hyper-Res Preview"></video>
+
+    <div class="overlay-ui">
+        <span class="badge">Connected: Ultra-Res</span>
+        <div class="metrics">
+            Latency: <span id="lat">12ms</span> | FPS: <span id="fps">60</span>
+        </div>
+    </div>
+
+    <div class="controls">
+        <button class="btn">Settings</button>
+        <button class="btn">Keyboard</button>
+        <button class="btn" style="color: #ef4444;">Disconnect</button>
+    </div>
+
+    <script>
+        // VaPiNe Viewer Logic Sync
+        console.log("VaPiNe Viewer Engine Ready.");
+    </script>
+</body>
+
+</html>

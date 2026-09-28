@@ -1,0 +1,22 @@
+name: VaPiNe Sentinel CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  node-syntax:
+    name: Node.js Syntax & Main Entrypoint Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Validate Entrypoint Syntax
+        run: |
+          node -c main.js
+          echo "VaPiNe main.js syntax verified."
+        shell: bash
